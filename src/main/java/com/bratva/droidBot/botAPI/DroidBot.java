@@ -33,10 +33,12 @@ public class DroidBot extends TelegramLongPollingBot {
     public void onUpdateReceived(Update update) {
         if (!update.hasMessage() || !update.getMessage().hasText())
             return;
-
+        System.out.println(update.getMessage().getChatId());
+        System.out.println(update.getMessage().getChat().getUserName());
+        System.out.println(update.getMessage().getChat().getFirstName());
         SendMessage message = new SendMessage()
                 .setChatId(update.getMessage().getChatId())
-                .setText("Hello" + update.getMessage().getAuthorSignature());
+                .setText("Hello " + update.getMessage().getChat().getFirstName());
         try {
            execute(message);
         } catch (TelegramApiException e) {
