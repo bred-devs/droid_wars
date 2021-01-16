@@ -1,0 +1,12 @@
+name: CD on the self-hosted server
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  deploy:
+    runs-on: [ self-hosted ]
+    steps:
+      - name: Run the script
+        run: ./deploy.sh
