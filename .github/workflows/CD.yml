@@ -9,4 +9,5 @@ jobs:
     runs-on: [ self-hosted ]
     steps:
       - name: Run the script
+        uses: actions/checkout@v2
         run: ./deploy.sh
